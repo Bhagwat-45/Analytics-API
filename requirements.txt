@@ -9,3 +9,5 @@ requests
 python-decouple
 psycopg[binary]
 requests
+python-decouple
+psycopg[binary]
