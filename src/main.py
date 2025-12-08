@@ -1,7 +1,17 @@
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from api.events import router as event_router
+from api.db.session import init_db
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    init_db()
+
+    yield
+
 app = FastAPI(
-    title = "Analytics API"
+    title = "Analytics API",
+    lifespan=lifespan
 )
 
 app.include_router(event_router)
