@@ -22,7 +22,7 @@ async def root():
         "message" : "Hello World!!"
     }
 
-@app.get("/healthz",tags=["Health"])
+@app.get("/health",tags=["Health"])
 async def read_api_health():
     return {
         "status" : "ok"
